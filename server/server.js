@@ -2,6 +2,7 @@ const express=require("express");
 const mongoose=require("mongoose");
 const bodyparser=require("body-parser");
 const cookieparser=require("cookie-parser");
+const userRoutes=require("./routes/userRoute");
 var DATABASE="mongodb://siva:asdfvcxz5@ds129051.mlab.com:29051/sai";
 var app=express();
 app.use(bodyparser.json());
@@ -31,7 +32,7 @@ mongoose
         );
         next();
     });
-
+    app.use("/api",userRoutes);
     app.listen(3000,(res,err)=>{
   
     console.log('connected');
